@@ -1,21 +1,34 @@
-interface IOrayTips {
-  success: TSendTipsFunc;
-  warning: TSendTipsFunc;
-  info: TSendTipsFunc;
-  error: TSendTipsFunc;
+// OrayTips接口
+export interface IOrayTips {
+  success: TTips2StatusFunc;
+  warning: TTips2StatusFunc;
+  info: TTips2StatusFunc;
+  error: TTips2StatusFunc;
+  tips: TTips2CustomFunc;
 }
 
-enum ETipStatus {
+// 状态枚举
+export enum ETipStatus {
   success,
   warning,
   info,
-  error
+  error,
+  default
 }
  
-type TSendTipsFunc = (msg: string) => void;
+// 状态消息发送函数
+export type TTips2StatusFunc = (msg: string) => void;
+// 自定义消息发送函数
+export type TTips2CustomFunc = (config: ICustomTipsConfig) => void;
 
-export {
-  IOrayTips,
-  ETipStatus,
-  TSendTipsFunc
+// 样式配置
+export interface IStyleConfig {
+  [key: string]: string;
+}
+
+// 自定义消息配置
+export interface ICustomTipsConfig {
+  msg: string;
+  style?: IStyleConfig;
+  delay?: number;
 }

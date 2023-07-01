@@ -6,7 +6,9 @@
   "module": "dist/oraytips.esm.js",
   "types": "dist/oraytips.d.ts",
   "typings": "dist/oraytips.d.ts",
+  "lib": "es2015",
   "scripts": {
+    "watch": "parcel watch",
     "build": "parcel build"
   },
   "author": "liliang",
